@@ -11,6 +11,7 @@ arr = [item for item in arr if len(item)]
 x_max = len(arr[0]) - 1
 y_max = len(arr) - 1
 
+
 class Number():
     def __init__(self, x, y, char):
         self.string = char
