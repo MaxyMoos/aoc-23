@@ -1,5 +1,6 @@
 import string
 
+
 with open('./data/03-1/input', 'r') as input_file:
     input = input_file.read()
 
