@@ -78,22 +78,12 @@ if __name__ == '__main__':
 
         perfect_hsyms = list(filter(lambda a: is_perfect(pattern, a), hsyms))
         perfect_vsyms = list(filter(lambda a: is_perfect(tpattern, a), vsyms))
-        """hsym_sizes = [(get_sym_size(pattern, s), s) for s in hsyms ]
-        vsym_sizes = [(get_sym_size(tpattern, s), s) for s in vsyms]"""
 
-        #print(f"{perfect_hsyms} / {perfect_vsyms}")
         if len(perfect_hsyms) == 1 and len(perfect_vsyms) == 0:
             htotal += perfect_hsyms[0]
         elif len(perfect_vsyms) == 1 and len(perfect_hsyms) == 0:
             vtotal += perfect_vsyms[0]
         else:
-            print("problem")
+            print("Issue")
 
-        """
-        for vsym in vsyms:
-            cur_size = get_sym_size(tpattern, vsym)
-            if cur_size > max_sym:
-                max_sym = cur_size
-        vtotal += cur_size
-        """
     print(vtotal + 100 * htotal)
