@@ -1,8 +1,3 @@
-import copy
-import sys
-import time
-
-
 TEST = False
 if TEST:
     fp = './test/input'
@@ -47,7 +42,7 @@ class Beams:
         else:
             self.beams = []
         self.history = set()
-        self.energized = [i.pos for i in self.beams]
+        self.compute_history()
 
     def move(self):
         new_beams = []
@@ -89,11 +84,6 @@ class Beams:
         for b in self.beams:
             self.history.add((b.pos, b.direction))
 
-    def compute_energized(self):
-        for beam in self.beams:
-            if not beam.pos in self.energized:
-                self.energized.append(beam.pos)
-
     def clean(self):
         clean_beams = []
         for beam in self.beams:
@@ -111,8 +101,7 @@ def get_score(p):
         b.move()
         b.clean()
         b.compute_history()
-        b.compute_energized()
-    return len(b.energized)
+    return len(set([i[0] for i in b.history]))
 
 
 left_start_positions = (((i, 0), (0, 1)) for i in range(len(inp)))
